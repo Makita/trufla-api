@@ -1,0 +1,18 @@
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'app/mailers/**/*'
+    - 'app/models/application_record.rb'
+    - 'app/serializers/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/**/*'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+
+Metrics/LineLength:
+  IgnoredPatterns: ['(\A|\s)#']
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

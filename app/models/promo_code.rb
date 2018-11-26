@@ -1,5 +1,7 @@
+##
+# This class represents a promo code that a product can have active.
 class PromoCode < ApplicationRecord
-  has_many :products
+  has_many :products # rubocop:disable Rails/HasManyOrHasOneDependent
 
-  validates_presence_of :code, :discount
+  validates :code, :discount, presence: true
 end
