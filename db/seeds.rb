@@ -5,7 +5,7 @@ require 'faker'
 ##
 # Generate departments with unique names.
 def generate_departments
-  100.times do
+  30.times do
     Department.create({ name: Faker::Commerce.unique.department })
   end
 # Just in case Faker has less data than I imagine
@@ -19,11 +19,14 @@ end
 # NULL in the table.
 def generate_promotions
   # This "promotion" is the one used to populate products with no promotion
-  PromoCode.create({ code: "nopromo" })
+  PromoCode.create({ code: "nopromo", discount: 0 })
   Faker::Commerce.unique.exclude :string, [7], %w(nopromo)
 
-  50.times do
-    PromoCode.create({ code: Faker::Commerce.unique.promotion_code })
+  15.times do
+    PromoCode.create({
+      code: Faker::Commerce.unique.promotion_code,
+      discount: Faker::Commerce.price(range = 20.0..50.0)
+    })
   end
 # Just in case Faker has less data than I imagine
 rescue Faker::UniqueGenerator::RetryLimitExceeded
