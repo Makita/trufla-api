@@ -4,7 +4,7 @@ RSpec.describe Product, type: :model do
   context "when validating" do
     before(:each) do
         @department = Department.create({ name: "Trufla" })
-        @promo = PromoCode.create({ code: "FREESTUFF" })
+        @promo = PromoCode.create({ code: "FREESTUFF", discount: 1.00 })
         @product = Product.new({
           name: "Free Back Rubs",
           price: 1.00,
