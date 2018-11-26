@@ -48,3 +48,18 @@ If you plan to make a change to the project, you'll need to use this. Assuming y
 ```
 docker run -itP -v $(pwd)/trufla-api trufla-api
 ```
+
+## Removing the Docker Image
+
+First, make sure any containers running the image are dead.
+
+```
+docker ps
+docker stop ID_OR_NAME
+```
+
+When all of these are dead, delete the image.
+
+```
+docker image rm ID_OR_NAME
+```
