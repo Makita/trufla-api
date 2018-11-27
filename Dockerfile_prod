@@ -1,0 +1,22 @@
+FROM ruby:2.5.1
+
+RUN apt-get update && apt-get install -y build-essential nodejs
+
+RUN mkdir /app
+WORKDIR /app
+
+ENV RAILS_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
+
+ADD Gemfile /app/Gemfile
+ADD Gemfile.lock /app/Gemfile.lock
+RUN gem install bundler
+RUN bundle config --global frozen 1
+RUN bundle install --without development test --jobs 20 --retry 5
+
+ADD . ./
+RUN bundle exec rake db:setup
+
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]

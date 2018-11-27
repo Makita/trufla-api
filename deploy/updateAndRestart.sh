@@ -6,16 +6,6 @@ set -e
 # Delete the old repo
 rm -rf /home/ec2-user/trufla-api
 
-# Just in case
-cd /home/ec2-user
-
-# Clone the repo again
-git clone https://gitlab.com/Makita1/trufla-api.git
-
-# Kill the previous instance of the server
-# Ignore errors because on first run, the PID file won't exist and it throws
-pkill -F /home/ec2-user/api.pid 2> /dev/null
-
-# Start the server again
+# Fetch the latest copy of the project
 cd /home/ec2-user/trufla-api
-nohup rails server puma -p 3000 > /dev/null 2>&1 & echo $! > /home/ec2-user/api.pid
+git pull origin master

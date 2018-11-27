@@ -31,8 +31,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Faker for seeds.rb
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   # Rspec > test_unit
   gem 'rspec-rails', '~> 3.8'
 end
@@ -51,3 +49,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "active_model_serializers", "~> 0.10.2"
+# Faker for seeds.rb
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
