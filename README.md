@@ -63,3 +63,10 @@ When all of these are dead, delete the image.
 ```
 docker image rm ID_OR_NAME
 ```
+
+# Deployment to AWS
+
+1. Set up an EC2 instance.
+2. Set two variables in Settings > CI / CD. `PRIVATE_KEY` = The key received when the EC2 instance was created. `PROD_SERVER` = The DNS (IPv4) of the EC2 instance.
+3. SSH into the EC2 instance and run `sudo yum install git` and `gem install bundler`.
+4. Push into the project on Gitlab. If you want to run this yourself, replace the repo link in deploy/updateAndRestart.sh with your own and push or import the repo onto Gitlab.
