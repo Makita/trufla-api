@@ -63,21 +63,3 @@ When all of these are dead, delete the image.
 ```
 docker image rm ID_OR_NAME
 ```
-
-# Deployment to AWS
-
-1. Set up an EC2 instance.
-2. Set two variables in Settings > CI / CD. `PRIVATE_KEY` = The key received when the EC2 instance was created. `PROD_SERVER` = The DNS (IPv4) of the EC2 instance.
-3. SSH into the EC2 instance and run these commands.
-```
-sudo yum install git docker
-sudo gem install bundler
-sudo groupadd docker
-sudo usermod -aG docker $(whoami)
-sudo service docker start
-git clone https://gitlab.com/Makita1/trufla-api.git
-cd trufla-api
-sudo docker build . -t trufla-api
-sudo docker run -it --rm trufla-api bundle exec rake db:setup
-```
-5. Push into the project on Gitlab. If you want to run this yourself, replace the repo link in deploy/updateAndRestart.sh with your own and push or import the repo onto Gitlab.
