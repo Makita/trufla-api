@@ -36,3 +36,11 @@ When all of these are dead, delete the image.
 ```
 docker image rm ID_OR_NAME
 ```
+
+## Running without Docker
+
+1. `git clone git@github.com:Makita/trufla-api.git`
+2. `cd trufla-api`
+3. `bundle install`
+4. `rake db:setup`
+5. `rails s`
