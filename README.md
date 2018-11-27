@@ -80,5 +80,4 @@ cd trufla-api
 sudo docker build . -t trufla-api
 sudo docker run -it --rm trufla-api bundle exec rake db:setup
 ```
-4. Create a docker container which runs the project on the instance.
 5. Push into the project on Gitlab. If you want to run this yourself, replace the repo link in deploy/updateAndRestart.sh with your own and push or import the repo onto Gitlab.
