@@ -10,10 +10,24 @@ before_script:
   - gem install bundler --no-ri --no-rdoc
   - bundle install -j $(nproc) --path vendor
 
+stages:
+  - test
+  - deploy
+
 rspec:
+  stage: test
   script:
     - bundle exec rspec
 
 rubocop:
+  stage: test
   script:
     - bundle exec rubocop
+
+deployToAWS:
+  environment: production
+  stage: deploy
+  only:
+    - master
+  script:
+    - bash deploy/deploy.sh

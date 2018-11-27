@@ -36,7 +36,7 @@ CONTAINER ID        IMAGE               COMMAND              CREATED            
 In the above example, the ID is `861a369adcee` and the name is `optimistic_jepsen`. This will replace `ID_OR_NAME` below.
 
 ```
-docker exec -it ID_OR_NAME bundle exec rake db:create db:migrate db:seed
+docker exec -it ID_OR_NAME bundle exec rake db:setup
 ```
 
 With the databases created, the site may be accessed via http://localhost:3000/.
