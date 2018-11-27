@@ -14,5 +14,8 @@ AllCops:
 Metrics/LineLength:
   IgnoredPatterns: ['(\A|\s)#']
 
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
