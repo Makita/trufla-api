@@ -11,11 +11,11 @@ AllCops:
     - 'spec/rails_helper.rb'
     - 'spec/spec_helper.rb'
 
+Lint/UnneededCopDisableDirective:
+  Enabled: false
+
 Metrics/LineLength:
   IgnoredPatterns: ['(\A|\s)#']
-
-Rails/HasManyOrHasOneDependent:
-  Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
