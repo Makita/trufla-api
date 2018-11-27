@@ -13,7 +13,8 @@ cd /home/ec2-user
 git clone https://gitlab.com/Makita1/trufla-api.git
 
 # Kill the previous instance of the server
-kill -9 `cat /home/ec2-user/api.pid`
+# Ignore errors because on first run, the PID file won't exist and it throws
+pkill -F /home/ec2-user/api.pid 2> /dev/null
 
 # Start the server again
 cd /home/ec2-user/trufla-api
