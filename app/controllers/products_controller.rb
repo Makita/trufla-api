@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
 
     @products = @products.where('products.name LIKE ?', "#{params[:search]}%")
 
-    offset = params[:start].to_i
+    offset = params[:start].to_i - 1
     limit = params[:end].to_i - params[:start].to_i
     @products = @products.offset(offset).limit(limit)
 
